@@ -5,7 +5,7 @@ Mosaic is an in-development social media protocol with a focus on true freedom a
 ### Manifesto:
 The internet and social media are among the greatest tools that Humans have made for sharing information and learning more about one another
 It is a pity how the digital commons, which should be an ideal protocol for freedom of expression, has been commodified and turned into a marketing platform
-The advent of the so*called Web 3.0 is the latest slight against the freedom of privacy of the users of the internet
+The advent of the so-called Web 3.0 is the latest slight against the freedom of privacy of the users of the internet
 
 ### Goals:
 ##### Political Goals:
