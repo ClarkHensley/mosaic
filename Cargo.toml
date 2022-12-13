@@ -10,15 +10,11 @@ edition = "2021"
 yew = { version = "0.20", features = ["csr"] }
 
 # SQLX stuff
-sqlx = { version = "0.6.2", features = ["runtime-tokio-native-tls", "mysql"] }
+sqlx = { version = "0.6.2", features = ["runtime-async-std-native-tls", "mysql"] }
 anyhow = "1.0"
 futures = "0.3"
-tokio = { version = "1", features = ["full"] }
+async-std = { version = "1", features = [ "attributes" ] }
 dotenvy = "0.15.6"
 
 # WASM
-getrandom = { version = "0.2", features = ["js"] }
 wasm-bindgen-futures = "0.4"
-
-[build]
-rustflags = [ "--cfg", "tokio_unstable" ]

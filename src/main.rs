@@ -17,7 +17,7 @@ fn app() -> Html {
     }
 }
 
-#[tokio::main]
+//#[async_std::main]
 async fn simulate_database_interaction() -> anyhow::Result<()> {
     let mut post_ids = vec![];
     let pool = MySqlPool::connect(&env::var("DATABASE_URL")?).await?;
@@ -32,9 +32,9 @@ async fn simulate_database_interaction() -> anyhow::Result<()> {
     }
     for id in post_ids.iter() {
         if remove_post(&pool, id.to_owned()).await? {
-            println!("Post with id {} remove", id);
+            println!("Post with id {} removed", id);
         } else {
-            println!("Error!");
+            println!("Error removing post with id {}!", id);
         }
     }
     Ok(())
@@ -70,8 +70,9 @@ async fn get_posts(pool: &MySqlPool) -> anyhow::Result<Vec<Post>> {
     Ok(posts)
 }
 
-fn main() {
+#[async_std::main]
+async fn main() -> anyhow::Result<(), sqlx::Error> {
     dotenv().ok();
-    simulate_database_interaction().ok();
+    simulate_database_interaction().await?;
     yew::Renderer::<App>::new().render();
 }
