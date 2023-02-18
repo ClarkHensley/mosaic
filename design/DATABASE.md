@@ -14,3 +14,29 @@ An example:
 I use Server A and Server B, but as a user, I want a single-sign-on, even though A and B are administered by different hosts
 So, I log into my Mosaic client, and this securely (how?) sends a Post of my password to all relevant servers, which shoudl work. So this is fine, we can just assume password reuse over the servers, which isn't ideal, but should be fine here.
     - How? HTTPS/SSL, apparently. Fortunately, the networking on all of this is, like, phase 3
+
+# Beginning Database set-up
+1. Install mariadb
+2. 
+```shell
+mariadb -u root -p
+```
+3.
+```SQL
+CREATE DATABASE mosaic;
+CREATE USER 'mosaic'@'localhost' IDENTIFIED BY <password>;
+GRANT ALL PRIVILEGES ON mosaic.* TO 'mosaic'@'localhost' IDENTIFIED BY 'mosaic';
+QUIT;
+```
+4.
+```shell
+mariadb -u mosaic -p
+```
+5.
+```SQL
+CREATE TABLE post (
+id SERIAL,
+contents LONGTEXT,
+PRIMARY KEY(id)
+);
+```

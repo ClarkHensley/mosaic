@@ -1,5 +1,5 @@
 [package]
-name = "mosaic"
+name = "mosaic_client"
 version = "0.1.0"
 edition = "2021"
 
@@ -8,13 +8,6 @@ edition = "2021"
 [dependencies]
 # Yew
 yew = { version = "0.20", features = ["csr"] }
-
-# SQLX stuff
-sqlx = { version = "0.6.2", features = ["runtime-async-std-native-tls", "mysql"] }
-anyhow = "1.0"
-futures = "0.3"
-async-std = { version = "1", features = [ "attributes" ] }
-dotenvy = "0.15.6"
 
 # WASM
 wasm-bindgen-futures = "0.4"
