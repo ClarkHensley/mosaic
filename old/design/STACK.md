@@ -1,7 +1,7 @@
 # Tech Stack
 
-## MariaDB (MySQL) Database
+## SQLite Database
 ## SQLX for Database Access
-## Axum for Back-End Web Framework
+## Actix 
 ## Reqwest for Posts and Gets to the Back-End
 ## Yew for Front-End
